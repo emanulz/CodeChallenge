@@ -6,13 +6,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery'
 import jQuery from 'jquery';
-import FetchProducts from './components/FetchProducts'
+import Layout from './components/layout/Layout'
 
 window.$ = $;
 window.jQuery = jQuery;
 
 
 ReactDOM.render(
-    <FetchProducts/>,
+    <Layout/>,
     document.getElementById('app-container')
 );

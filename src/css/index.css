@@ -20,11 +20,13 @@
 }
 
 .product-img{
-    max-height: 90px !important;
+    max-height: 150px !important;
     max-width: 100%;
 }
 
 
-.modal-container-own{
-    height: 500px !important;
+.modal-container section{
+
+    margin-bottom: 12px;
+
 }

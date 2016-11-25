@@ -1,24 +1,33 @@
 {
   "name": "code-challenge",
   "version": "0.0.1",
-  "description": "Comparison of Node.js template languages.",
+  "description": "Code Challege - Online Store, ReactJS",
   "keywords": [
-    "template",
-    "benchmark"
+    "Store",
+    "ReactJS"
   ],
   "author": "Emanuel Zuniga Infante <twitter.com/emanulz>",
   "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
-    "babelify": "^7.3.0",
+    "babel-preset-stage-0": "^6.16.0",
     "bootstrap": "^3.3.7",
-    "browserify": "^13.1.1",
+    "flux": "^3.1.0",
     "jquery": "^1.11.2",
     "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
-    "react-modal-dialog": "^4.0.2"
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "build": "browserify app.js > ./public/js/index.js -t [ babelify --presets [ es2015 react ] ]"
+    "build": "webpack-dev-server --content-base src --inline --hot",
+    "webpack": "webpack"
   }
 }
