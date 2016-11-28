@@ -44,7 +44,7 @@ export default class Products extends React.Component {
         });
 
         return (
-            <div>
+            <div className="products-container" >
                 {ProductComponents}
             </div>
         );

@@ -3,8 +3,11 @@
  */
 
 import React from 'react';
-import Products from './Products'
+
+import Cart from '../cart/Cart'
 import NavigationBar from './NavigationBar'
+import Products from './Products'
+
 
 
 export default class Layout extends React.Component {
@@ -13,11 +16,13 @@ export default class Layout extends React.Component {
     render(){
 
         return <div>
-                    <header>
-                        <NavigationBar appName={'Online Store'}>
 
-                        </NavigationBar>
-                    </header>
+                    <NavigationBar appName={'Online Store'}>
+
+                    </NavigationBar>
+
+
+                    <Cart/>
 
                     <Products />
                </div>

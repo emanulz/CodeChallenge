@@ -1,23 +1,107 @@
+
+#app-container{
+    margin: 0;
+    padding: 0;
+
+}
+
+.cart-container {
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    max-width: 100%;
+    position: absolute;
+
+    right: 5.5%;
+    top: -700px;
+
+    transition: .25s top ease;
+    -moz-transition: .25s top ease;
+    -ms-transition: .25s top ease;
+    -o-transition: .25s top ease;
+    -webkit-transition: .25s top ease;
+
+    width: 400px;
+    z-index: 999;
+}
+
+.cart-body{
+    max-height: 500px;
+    min-height: 200px;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+
+.cart-body h4{
+    margin-bottom: 0;
+}
+
+.cart-remove-btn{
+    display: inline-block;
+    float: right;
+}
+
+.cart-container.visible {
+
+    position: fixed;
+    top: 70px;
+
+}
+
+.cart-item-container{
+    background-color: lightgray;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+.cart-footer{
+    background-color: lightslategray;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    padding: 10px;
+}
+
+
+.cart-head{
+    background-color: lightslategray;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.modal-container section{
+    margin-bottom: 12px;
+
+}
+
+
 .product{
 
+    background-color: lightgray;
+    height: 250px;
+    margin:10px;
+    padding: 10px;
     text-align: center;
-    height: 300px;
-    margin:12px;
-    padding: 12px;
-    background-color: lavenderblush;
 }
 
 .product-container{
 
-    padding: 0;
     margin: 0;
+    padding: 0;
 
 }
 
-#app-container{
-    padding: 2em;
-
+.products-container{
+    margin: 0 5%;
+    padding-top: 70px;
 }
+
 
 .product-img{
     max-height: 150px !important;
@@ -25,8 +109,67 @@
 }
 
 
-.modal-container section{
 
-    margin-bottom: 12px;
+
+.qty-input{
+    font-size: 15px;
+    height: 30px;
+    margin-right:10px;
+    width: 100px;
+}
+
+
+.title-div{
+
+    display: inline-block;
+    font-family: Impact, Charcoal, sans-serif;
+    font-size: 35px;
+    margin-left: 5.5%;
+    margin-top: 10px;
 
 }
+
+
+table {
+
+    width: 100%;
+
+}
+
+
+.head-div{
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    color: dimgray;
+    height: 60px;
+    position: fixed;
+    width:100%;
+    z-index: 500;
+}
+
+
+
+.view-cart-span{
+    float: right;
+    height: 60px;
+    margin-right: 5.5%;
+    text-align: center;
+    width: 150px;
+    font-size: 17px;
+
+}
+
+.view-cart-btn{
+    background-color: lightslategray;
+    border: 0;
+    box-shadow:none;
+    color: white;
+    height: 100%;
+    width: 100%;
+
+}
+
+.view-cart-btn:hover{
+    background-color: slategray;
+}
+

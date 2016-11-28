@@ -15,3 +15,11 @@ export function loadProducts() {
     });
 
 }
+
+export function addToCart(product, qty){
+
+    dispatcher.dispatch({type:"ADD_TO_CART", product:product, qty})
+
+}
+
+
