@@ -29,18 +29,14 @@ export default class Products extends React.Component {
         ProductActions.clearSearch();
         ProductActions.loadProducts();
 
-
     }
 
     getProducts() {
-
         this.setState({
             products: ProductStore.getAll(),
         });
 
-
     }
-
 
     render() {
         const { products } = this.state;

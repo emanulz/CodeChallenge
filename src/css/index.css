@@ -2,21 +2,28 @@
 #app-container{
     margin: 0;
     padding: 0;
+}
 
+.cart-body{
+    background-color: white;
+    max-height: 500px;
+    min-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
 
 }
 
-/*::-webkit-scrollbar {*/
-    /*display: none;*/
-/*}*/
+.cart-body h4{
+    margin-bottom: 0;
+}
 
 .cart-container {
     background-color: white;
+    border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .5);
     max-width: 100%;
-    position: absolute;
 
-    border-radius: 5px;
+    position: absolute;
 
     right: 5.5%;
     top: -700px;
@@ -38,19 +45,6 @@
 
 }
 
-.cart-body{
-    max-height: 500px;
-    min-height: 200px;
-    background-color: white;
-    overflow-y: auto;
-    overflow-x: hidden;
-
-}
-
-.cart-body h4{
-    margin-bottom: 0;
-}
-
 .cart-remove-btn{
     display: inline-block;
     float: right;
@@ -58,95 +52,94 @@
 
 .cart-item-container{
     background-color: #232f3e;
-    color: white;
-    padding: 10px;
-    margin: 5px;
     border-radius: 5px;
+    color: white;
+    margin: 5px;
+    padding: 10px;
 }
 
 .cart-footer{
     background-color: #f08804;
+    border-radius: 0 0 5px 5px;
     color: black;
     font-size: 20px;
+    font-weight:bolder;
     height: 50px;
     padding: 10px;
-    font-weight:bolder;
-    border-radius: 0 0 5px 5px;
 }
 
 .cart-head{
     background-color: #f08804;
+    border-radius: 5px 5px 0 0;
     color: black;
+    font-family: Impact, Charcoal, sans-serif;
     font-size: 20px;
     height: 50px;
     padding: 10px;
     text-align: center;
-    font-family: Impact, Charcoal, sans-serif;
-    border-radius: 5px 5px 0 0;
 }
 
 .cart-view-div{
 
     float: right;
+    font-size: 17px;
+    font-weight: bold;
     height: 60px;
     margin-right: 5.5%;
     text-align: center;
     width: 150px;
-    font-size: 17px;
-    font-weight: bold;
 }
 
 .cart-icon{
-    width:25px;
     margin-right: 10px;
+    width:25px;
 }
 
 .cart-search-div{
-    position: relative;
     display: inline-block;
-    margin-right: 20px;
-    padding: 0;
     float: right;
     height: 60px;
     line-height: 60px;
+    margin-right: 20px;
+    padding: 0;
+    position: relative;
 
 }
 
 .cart-search-input{
 
-    vertical-align: baseline;
-    height: 30px;
-    width: 250px;
     border-radius: 5px;
-    box-shadow: none;
     border-style: none;
+    box-shadow: none;
+    height: 30px;
     margin:0;
     padding-left:35px;
+    vertical-align: baseline;
+    width: 250px;
 }
 
 .cart-search-icon {
-    position:absolute;
     bottom:22px;
-    left:10px;
-    width:15px;
     height:15px;
+    left:10px;
+    position:absolute;
+    width:15px;
 }
 
 .cart-view-btn{
     background-color: #f08804;
     border: 0;
+    border-radius: 5px;
     box-shadow:none;
     color: black;
     height:90%;
     width: 100%;
-    border-radius: 5px;
 
 }
 
 .cart-view-btn:hover{
     background-color: #f07603;
 }
-
 
 .cart-full-container{
     margin: 0 5%;
@@ -186,11 +179,11 @@
 .product{
 
     background-color: #ccc;
+    border-radius: 10px;
     height: 250px;
     margin:10px;
     padding: 10px;
     text-align: center;
-    border-radius: 10px;
 }
 
 .product-container{
@@ -206,14 +199,10 @@
 
 }
 
-
 .product-img{
     max-height: 150px !important;
     max-width: 100%;
 }
-
-
-
 
 .qty-input{
     font-size: 15px;
@@ -226,7 +215,6 @@ table {
 
     width: 100%;
 }
-
 
 .head-div{
     background-color: #232f3e;
@@ -246,7 +234,6 @@ table {
     color: antiquewhite;
     text-decoration: none;
 }
-
 
 .title-app{
 
@@ -274,34 +261,31 @@ table {
 
 }
 
-
-
 .search-cart-div{
     background-color: #232f3e;
+    border-bottom: 1px solid lightgray;
     position: fixed;
     top:60px;
     width:100%;
     z-index: 500;
-    border-bottom: 1px solid lightgray;
 }
-
 
 .cart-view-btn:active,
 .cart-view-btn:focus,
 .cart-view-btn.active {
     background-image: none;
-    outline: 0;
-    -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: 0;
 }
 
 .cart-search-input:active,
 .cart-search-input:focus,
 .cart-search-input.active {
     background-image: none;
-    outline: 0;
-    -webkit-box-shadow: none;
     box-shadow: none;
+    -webkit-box-shadow: none;
+    outline: 0;
 }
 
 @media (max-width: 600px) {
@@ -314,9 +298,9 @@ table {
 
     .cart-container.visible {
 
-        width: 100%;
         height: 50%;
         right: 0;
+        width: 100%;
 
     }
     .cart-body{

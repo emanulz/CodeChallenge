@@ -6,7 +6,6 @@ import React from 'react';
 import ProductImage from './ProductImage';
 import ProductName from './ProductName';
 import * as ProductActions from "../../actions/ProductActions";
-import ProductData from './ProductData';
 import Modal from 'react-bootstrap/lib/Modal';
 import Col from 'react-bootstrap/lib/Col';
 import DynamicNumber from 'react-dynamic-number';
