@@ -22,4 +22,10 @@ export function addToCart(product, qty){
 
 }
 
+export function clearSearch(){
+
+    dispatcher.dispatch({type:"CLEAR_SEARCH"})
+
+}
+
 

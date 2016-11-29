@@ -57,8 +57,15 @@ export default class Product extends React.Component {
     }
 
     render() {
-        return <div className="product-container col-md-6 col-lg-4 col-xl-3">
-            <div className="product">
+
+        const imageUrl = this.props.product.imageUrl ? this.props.product.imageUrl : "/img/noImageAvailable.png";
+
+
+
+        return <div className="product-container ">
+            <Col md={6} lg={4} >
+
+                <div className="product">
 
                 <ProductImage product={this.props.product } callBack={ this.open }/>
 
@@ -86,7 +93,7 @@ export default class Product extends React.Component {
                         <Modal.Body>
 
                             <Col xs={4}>
-                                <img className="product-img" src="/img/noImageAvailable.png" alt="No Image"/>
+                                <img className="product-img" src={imageUrl}/>
                             </Col>
 
                             <Col xs={8} className='modal-container'>
@@ -128,6 +135,7 @@ export default class Product extends React.Component {
                 </Modal>
 
             </div>
+            </Col>
         </div>
     }
 }

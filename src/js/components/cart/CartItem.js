@@ -15,7 +15,7 @@ export default class CartItem extends React.Component {
 
         return  <div className="cart-item-container" >
                     <h4>{this.props.product.name} <button onClick={this.handleClick.bind(this)} className=" cart-remove-btn btn btn-danger">Remove</button> </h4>
-                    <div> Quantity: <b>{this.props.qty}</b> - <b>${price}</b> </div>
+                    <div> Quantity: {this.props.qty} - ${price} </div>
                 </div>
 
 

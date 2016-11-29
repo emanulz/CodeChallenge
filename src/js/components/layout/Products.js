@@ -25,14 +25,20 @@ export default class Products extends React.Component {
     }
 
     componentDidMount(){
+
+        ProductActions.clearSearch();
         ProductActions.loadProducts();
+
 
     }
 
     getProducts() {
+
         this.setState({
             products: ProductStore.getAll(),
         });
+
+
     }
 
 

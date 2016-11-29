@@ -14,3 +14,11 @@ export function toggleCart(){
 
 }
 
+export function searchProduct(text){
+
+    dispatcher.dispatch({type:"SEARCH_PRODUCT", text : text})
+
+}
+
+
+

@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-
 import Cart from '../cart/Cart'
-import NavigationBar from './NavigationBar'
-import Products from './Products'
+
+import TopBar from './TopBar'
+import TopSearchCart from './TopSearchCart'
 
 
 
@@ -17,14 +17,18 @@ export default class Layout extends React.Component {
 
         return <div>
 
-                    <NavigationBar appName={'Online Store'}>
+                    <TopBar appName={'Online Store'}>
 
-                    </NavigationBar>
+                    </TopBar>
 
+                    <TopSearchCart>
+
+                    </TopSearchCart>
 
                     <Cart/>
 
-                    <Products />
+                    {this.props.children}
+
                </div>
 
 

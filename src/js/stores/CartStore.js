@@ -30,7 +30,6 @@ class CartStore extends EventEmitter {
 
     addProduct(product, qty) {
 
-
         let isOnProducts = false;
 
         const products = this.products;
@@ -70,6 +69,7 @@ class CartStore extends EventEmitter {
 
         if (isOnProducts){
             this.products.splice(i,1);
+            this.itemsInCart = this.itemsInCart-1;
             this.setCartTotal();
             this.emit("change");
         }
@@ -119,6 +119,7 @@ class CartStore extends EventEmitter {
                 this.toggleCart();
                 break;
             }
+
         }
     }
 }
