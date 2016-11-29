@@ -85,6 +85,12 @@ class CartStore extends EventEmitter {
         this.emit("change");
     }
 
+    hideCart(){
+
+        this.cartVisible = false;
+        this.emit("change");
+    }
+
     setCartTotal(){
 
         const products = this.products;
@@ -117,6 +123,11 @@ class CartStore extends EventEmitter {
             }
             case "TOGGLE_CART": {
                 this.toggleCart();
+                break;
+            }
+
+            case "HIDE_CART": {
+                this.hideCart();
                 break;
             }
 

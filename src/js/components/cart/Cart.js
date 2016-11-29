@@ -1,8 +1,8 @@
 
 import React from 'react';
+
 import CartItem from"./CartItem"
 import CartStore from "../../stores/CartStore";
-
 import * as CartActions from "../../actions/CartActions";
 
 
@@ -36,6 +36,12 @@ export default class Cart extends React.Component {
         CartActions.removeFromCart(sku);
     }
 
+    clickFullCart(){
+
+        window.location.assign("/#/cart");
+        CartActions.toggleCart();
+    }
+
     render() {
 
         const { products } = this.state;
@@ -61,7 +67,16 @@ export default class Cart extends React.Component {
 
                     </div>
 
-                    <div className="cart-footer" >Total: ${this.state.cartTotal.toFixed(2)}</div>
+                    <div className="cart-footer" >
+
+                        Total: ${this.state.cartTotal.toFixed(2)}
+
+                        <button onClick={this.clickFullCart.bind(this)} className="btn btn-success cart-btn-footer">
+                                Full Cart
+                        </button>
+
+
+                    </div>
                 </div>
     }
 

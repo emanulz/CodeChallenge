@@ -4,14 +4,11 @@
 
 import React from 'react';
 import Cart from '../cart/Cart'
-
 import TopBar from './TopBar'
 import TopSearchCart from './TopSearchCart'
 
 
-
 export default class Layout extends React.Component {
-
 
     render(){
 
@@ -31,11 +28,6 @@ export default class Layout extends React.Component {
 
                </div>
 
-
-
     }
-
-
-
 
 }

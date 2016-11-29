@@ -24,7 +24,6 @@
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
-    "react-dynamic-number": "^1.4.4",
     "react-router": "^3.0.0",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"

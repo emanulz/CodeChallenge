@@ -8,7 +8,6 @@ import ProductName from './ProductName';
 import * as ProductActions from "../../actions/ProductActions";
 import Modal from 'react-bootstrap/lib/Modal';
 import Col from 'react-bootstrap/lib/Col';
-import DynamicNumber from 'react-dynamic-number';
 
 
 export default class Product extends React.Component {
@@ -49,16 +48,14 @@ export default class Product extends React.Component {
 
     }
 
-    setQty(ev,modelValue, viewValue ) {
+    setQty(ev ) {
 
-        this.setState({qty: viewValue});
-
+        this.setState({qty: ev.target.value})
     }
 
     render() {
 
         const imageUrl = this.props.product.imageUrl ? this.props.product.imageUrl : "/img/noImageAvailable.png";
-
 
 
         return <div className="product-container ">
@@ -113,11 +110,12 @@ export default class Product extends React.Component {
                                 </section>
 
                                 <section>
-                                    <DynamicNumber separator={'.'} integer={5} fraction={0}
-                                                   onKeyPress={this.handleKeyPress.bind(this)}
-                                                   onChange={this.setQty.bind(this)}
-                                                   value={this.state.qty}
-                                                   className="qty-input"/>
+
+                                    <input type="number"
+                                           className="qty-input"
+                                           onKeyPress={this.handleKeyPress.bind(this)}
+                                           onChange={this.setQty.bind(this)}
+                                           value={this.state.qty}/>
 
                                     <input type="button" onClick={this.addItemToCart} className="btn btn-success"
                                            value={'Add To Cart'}/>

@@ -3,6 +3,7 @@ import React from "react";
 import Product from '../product/Product'
 import * as ProductActions from "../../actions/ProductActions";
 import ProductStore from "../../stores/ProductStore";
+import * as CartActions from "../../actions/CartActions";
 
 
 export default class Products extends React.Component {
@@ -38,6 +39,10 @@ export default class Products extends React.Component {
 
     }
 
+    clickBody(){
+        CartActions.hideCart();
+    }
+
     render() {
         const { products } = this.state;
 
@@ -46,7 +51,7 @@ export default class Products extends React.Component {
         });
 
         return (
-            <div className="products-container" >
+            <div onClick={this.clickBody} className="products-container" >
                 {ProductComponents}
             </div>
         );

@@ -4,11 +4,16 @@
 
 import React from 'react';
 import { Link } from 'react-router';
+import * as CartActions from "../../actions/CartActions";
 
 
 export default class NavigationBar extends React.Component {
 
-
+    clickFullCart(ev){
+        ev.preventDefault();
+        window.location.assign("/#/cart");
+        CartActions.hideCart();
+    }
 
     render(){
 
@@ -22,29 +27,33 @@ export default class NavigationBar extends React.Component {
                             </span>
                         </Link>
 
-                        <span className = "title-separator"  >|</span>
+                        <span className="hide-on-mobile" >
+                            <span className = "title-separator"  >|</span>
 
-                        <Link to="/">
-                            <span className="title-sub">
-                                Profile
-                            </span>
-                        </Link>
+                            <Link to="/">
+                                <span className="title-sub">
+                                    Profile
+                                </span>
+                            </Link>
 
-                        <span className = "title-separator"  >|</span>
+                            <span className = "title-separator"  >|</span>
 
-                        <Link to="/">
-                            <span className="title-sub">
-                                Whish List
-                            </span>
-                        </Link>
+                            <Link to="/">
+                                <span className="title-sub">
+                                    Whish List
+                                </span>
+                            </Link>
 
-                        <span className = "title-separator"  >|</span>
+                            <span className = "title-separator"  >|</span>
 
-                        <Link to="/cart">
-                            <span className="title-sub">
-                                Full Cart
-                            </span>
-                        </Link>
+                            <a href="/#/cart"   onClick={this.clickFullCart}>
+                                <span className="title-sub">
+                                    Full Cart
+                                </span>
+                            </a>
+
+                        </span>
+
 
 
                     </span>
@@ -52,7 +61,5 @@ export default class NavigationBar extends React.Component {
                 </div>
 
     }
-
-
 
 }

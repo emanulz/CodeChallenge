@@ -14,6 +14,12 @@ export function toggleCart(){
 
 }
 
+export function hideCart(){
+
+    dispatcher.dispatch({type:"HIDE_CART"})
+
+}
+
 export function searchProduct(text){
 
     dispatcher.dispatch({type:"SEARCH_PRODUCT", text : text})
