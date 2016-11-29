@@ -28,6 +28,6 @@
 
 * Serve the content with the http server of your choice, we recommend lite-server, 
   you can download it from https://www.npmjs.com/package/lite-server, 
-  or run 'npm install -G lite-server'.
+  or run 'npm install -g lite-server'.
   
 * Enjoy!
