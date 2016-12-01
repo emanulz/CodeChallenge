@@ -6,6 +6,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import * as CartActions from "../../actions/CartActions";
 import LoginStore from "../../stores/LoginStore";
+import * as LoginActions from "../../actions/LoginActions";
 
 
 export default class NavigationBar extends React.Component {
@@ -20,6 +21,12 @@ export default class NavigationBar extends React.Component {
         ev.preventDefault();
         window.location.assign("/#/cart");
         CartActions.hideCart();
+    }
+
+    callLogout(ev){
+        ev.preventDefault();
+        LoginActions.logout();
+        CartActions.emptyCart();
     }
 
     render(){
@@ -64,15 +71,12 @@ export default class NavigationBar extends React.Component {
 
                         <span className="title-sub-2" hidden={!this.state.loggedIn} >
                             Hello {this.state.username}
-                            <Link to="/login">
+                            <a href="" onClick={this.callLogout.bind(this)}>
                                 <span className="title-sub-">
                                     (Logout)
                                 </span>
-                            </Link>
+                            </a>
                         </span>
-
-
-
 
                     </span>
 

@@ -14,7 +14,7 @@ export default class TopSearchCart extends React.Component {
         super(props);
         this.getCartData = this.getCartData.bind(this);
         this.clearSearch = this.clearSearch.bind(this);
-        this.state = { itemsInCart:0, cartTotal:0, query:''};
+        this.state = { itemsInCart:CartStore.getItemsInCart(), cartTotal:CartStore.getCartTotal(), query:''};
     }
 
     componentWillMount() {

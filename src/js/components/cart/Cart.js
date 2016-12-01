@@ -4,6 +4,7 @@ import React from 'react';
 import CartItem from"./CartItem"
 import CartStore from "../../stores/CartStore";
 import * as CartActions from "../../actions/CartActions";
+import LoginStore from "../../stores/LoginStore";
 
 
 export default class Cart extends React.Component {
@@ -17,10 +18,12 @@ export default class Cart extends React.Component {
     componentWillMount() {
 
         CartStore.on("change", this.getCartProducts);
+
     }
 
     componentWillUnmount() {
         CartStore.removeListener("change", this.getCartProducts);
+
     }
 
     getCartProducts() {
@@ -41,6 +44,7 @@ export default class Cart extends React.Component {
         window.location.assign("/#/cart");
         CartActions.toggleCart();
     }
+
 
     render() {
 

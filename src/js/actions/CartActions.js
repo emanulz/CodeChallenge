@@ -26,5 +26,11 @@ export function searchProduct(text){
 
 }
 
+export function emptyCart(){
+
+    dispatcher.dispatch({type:"EMPTY_CART"})
+
+}
+
 
 

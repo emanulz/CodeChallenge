@@ -6,8 +6,15 @@ class LoginStore extends EventEmitter {
 
     constructor() {
         super();
-        this.isLoggedIn = false;
-        this.user = ""
+        try{
+            this.isLoggedIn = JSON.parse(localStorage.isLoggedIn);
+            this.user = JSON.parse(localStorage.user);
+        }
+        catch(error) {
+            this.isLoggedIn = false;
+            this.user = '';
+        }
+
     }
 
     getLoggedIn() {
@@ -27,6 +34,9 @@ class LoginStore extends EventEmitter {
             this.isLoggedIn = true;
             this.user = username;
             this.emit("loginValid");
+            localStorage.isLoggedIn=JSON.stringify(true);
+            localStorage.user=JSON.stringify(username);
+
         }
         else{
             this.emit("loginError");
@@ -36,7 +46,11 @@ class LoginStore extends EventEmitter {
 
     logout() {
 
-
+        this.isLoggedIn = false;
+        this.user = '';
+        localStorage.isLoggedIn=JSON.stringify(false);
+        localStorage.user=JSON.stringify('');
+        this.emit("logout");
     }
 
 

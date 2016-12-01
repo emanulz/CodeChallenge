@@ -12,6 +12,7 @@ import Products from './components/layout/Products'
 import Login from './components/login/Login'
 import LoginForm from './components/login/LoginForm'
 
+localStorage.products = [];
 
 ReactDOM.render(
 

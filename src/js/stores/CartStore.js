@@ -34,7 +34,7 @@ class CartStore extends EventEmitter {
 
         const products = this.products;
 
-        for(var i = 0; i < products.length; i++) {
+        for(let i = 0; i < products.length; i++) {
             if (products[i][0].sku == product.sku) {
                 isOnProducts = true;
                 break;
@@ -60,7 +60,7 @@ class CartStore extends EventEmitter {
 
         const products = this.products;
 
-        for(var i = 0; i < products.length; i++) {
+        for(let i = 0; i < products.length; i++) {
             if (products[i][0].sku == sku) {
                 isOnProducts = true;
                 break;
@@ -96,7 +96,7 @@ class CartStore extends EventEmitter {
         const products = this.products;
         let total = 0;
 
-        for(var i = 0; i < products.length; i++) {
+        for(let i = 0; i < products.length; i++) {
 
             total = total+(products[i][0].price * products[i][1])
 
@@ -104,6 +104,18 @@ class CartStore extends EventEmitter {
 
         this.cartTotal = total;
     }
+
+    emptyCart(){
+
+        this.products = [];
+        this.itemsInCart = 0;
+        this.cartTotal = 0;
+        this.cartVisible = false;
+
+        this.emit("change");
+
+    }
+
 
     handleActions(action) {
 
@@ -128,6 +140,11 @@ class CartStore extends EventEmitter {
 
             case "HIDE_CART": {
                 this.hideCart();
+                break;
+            }
+
+            case "EMPTY_CART": {
+                this.emptyCart();
                 break;
             }
 

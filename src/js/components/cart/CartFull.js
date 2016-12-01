@@ -2,6 +2,7 @@
 import React from 'react';
 import CartFullItem from"./CartFullItem"
 import CartStore from "../../stores/CartStore";
+import LoginStore from "../../stores/LoginStore";
 
 import * as CartActions from "../../actions/CartActions";
 
@@ -17,10 +18,12 @@ export default class CartFull extends React.Component {
     componentWillMount() {
 
         CartStore.on("change", this.getCartProducts);
+        LoginStore.on("logout", this.redirectToLogin);
     }
 
     componentWillUnmount() {
         CartStore.removeListener("change", this.getCartProducts);
+        LoginStore.removeListener("logout", this.redirectToLogin);
     }
 
     componentDidMount(){
@@ -38,6 +41,10 @@ export default class CartFull extends React.Component {
 
     removeFromCart(sku){
         CartActions.removeFromCart(sku);
+    }
+
+    redirectToLogin(){
+        window.location.assign("/#/login");
     }
 
     render() {

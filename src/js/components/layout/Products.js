@@ -4,6 +4,7 @@ import Product from '../product/Product'
 import * as ProductActions from "../../actions/ProductActions";
 import ProductStore from "../../stores/ProductStore";
 import * as CartActions from "../../actions/CartActions";
+import LoginStore from "../../stores/LoginStore";
 
 
 export default class Products extends React.Component {
@@ -11,6 +12,7 @@ export default class Products extends React.Component {
     constructor() {
         super();
         this.getProducts = this.getProducts.bind(this);
+        this.redirectToLogin = this.redirectToLogin.bind(this);
         this.state = {
             products: ProductStore.getAll(),
         };
@@ -19,10 +21,12 @@ export default class Products extends React.Component {
     componentWillMount() {
 
         ProductStore.on("change", this.getProducts);
+        LoginStore.on("logout", this.redirectToLogin);
     }
 
     componentWillUnmount() {
         ProductStore.removeListener("change", this.getProducts);
+        ProductStore.removeListener("logout", this.redirectToLogin);
     }
 
     componentDidMount(){
@@ -41,6 +45,10 @@ export default class Products extends React.Component {
 
     clickBody(){
         CartActions.hideCart();
+    }
+
+    redirectToLogin(){
+        window.location.assign("/#/login");
     }
 
     render() {
