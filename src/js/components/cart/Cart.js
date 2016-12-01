@@ -72,7 +72,7 @@ export default class Cart extends React.Component {
                         Total: ${this.state.cartTotal.toFixed(2)}
 
                         <button onClick={this.clickFullCart.bind(this)} className="btn btn-success cart-btn-footer">
-                                Full Cart
+                                View Cart
                         </button>
 
 

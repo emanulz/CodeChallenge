@@ -8,13 +8,15 @@ import TopBar from './TopBar'
 import TopSearchCart from './TopSearchCart'
 
 
+
 export default class Layout extends React.Component {
+
 
     render(){
 
         return <div>
 
-                    <TopBar appName={'Online Store'}>
+                    <TopBar appName={'Online Store'} user="">
 
                     </TopBar>
 

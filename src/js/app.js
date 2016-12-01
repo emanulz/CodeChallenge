@@ -4,16 +4,13 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery'
-import jQuery from 'jquery';
-import Layout from './components/layout/Layout'
 import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 
+import Layout from './components/layout/Layout'
 import CartFull from './components/cart/CartFull'
 import Products from './components/layout/Products'
-
-window.$ = $;
-window.jQuery = jQuery;
+import Login from './components/login/Login'
+import LoginForm from './components/login/LoginForm'
 
 
 ReactDOM.render(
@@ -25,6 +22,11 @@ ReactDOM.render(
             </IndexRoute>
             <Route path={"/cart"} component={CartFull}>
             </Route>
+        </Route>
+
+        <Route path="/login" component={Login}>
+            <IndexRoute component={LoginForm}>
+            </IndexRoute>
         </Route>
 
     </Router>,

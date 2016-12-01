@@ -1,19 +1,28 @@
 import dispatcher from "../dispatcher";
-import $ from 'jquery'
-
+import * as ProductsAPI from "../util/ProductsAPI"
 
 export function loadProducts() {
 
     dispatcher.dispatch({type: "FETCH_PRODUCTS"});
 
-    $.ajax({
-        url:'products.json',
-        dataType: 'json',
-        success:(data)=>{
-            dispatcher.dispatch({type: "RECEIVE_PRODUCTS", products: data.products });
-        }
-    });
 
+    if (localStorage.products){
+        console.log('Hola desde es Storage');
+        dispatcher.dispatch({type: "RECEIVE_PRODUCTS", products: JSON.parse(localStorage.products)});
+    }
+
+    else{
+        console.log('Cargando desde API');
+        ProductsAPI
+            .getProducts('products.json')
+            .then(products => {
+                localStorage.products = JSON.stringify(products);
+                dispatcher.dispatch({type: "RECEIVE_PRODUCTS", products: products });
+            })
+            .catch(message => {
+                console.log(message);
+            });
+    }
 }
 
 export function addToCart(product, qty){
