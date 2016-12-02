@@ -1,13 +1,13 @@
 import request from 'superagent/lib/client';
 
-export function getLogin(url) {
+export function getLogin(url, username, password) {
 
     return new Promise((resolve, reject) => {
         request
-            .get(url)
+            .post(url)
+            .send({username:username, password:password})
             .end((err, response) => {
                 if (err) reject(err);
-                console.log(response);
                 resolve(response.body);
             })
     });

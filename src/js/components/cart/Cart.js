@@ -4,7 +4,6 @@ import React from 'react';
 import CartItem from"./CartItem"
 import CartStore from "../../stores/CartStore";
 import * as CartActions from "../../actions/CartActions";
-import LoginStore from "../../stores/LoginStore";
 
 
 export default class Cart extends React.Component {

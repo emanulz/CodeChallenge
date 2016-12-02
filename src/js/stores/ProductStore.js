@@ -21,7 +21,7 @@ class ProductStore extends EventEmitter {
 
         if(text !== ''){
 
-            for(var i = 0; i < products.length; i++) {
+            for(let i = 0; i < products.length; i++) {
                 let product = products[i].name.toLowerCase();
                 if (product.indexOf(text.toLowerCase()) !== -1) {
                     newProducts.push(products[i]);

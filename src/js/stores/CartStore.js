@@ -10,6 +10,7 @@ class CartStore extends EventEmitter {
         this.itemsInCart = 0;
         this.cartTotal = 0;
         this.cartVisible = false;
+        this.allProducts = [];
     }
 
     getCartProducts() {
@@ -60,15 +61,18 @@ class CartStore extends EventEmitter {
 
         const products = this.products;
 
+        let index = 0;
+
         for(let i = 0; i < products.length; i++) {
             if (products[i][0].sku == sku) {
                 isOnProducts = true;
+                index = i;
                 break;
             }
         }
 
         if (isOnProducts){
-            this.products.splice(i,1);
+            this.products.splice(index,1);
             this.itemsInCart = this.itemsInCart-1;
             this.setCartTotal();
             this.emit("change");
@@ -116,6 +120,18 @@ class CartStore extends EventEmitter {
 
     }
 
+    loadApiProducts(cart){
+
+
+
+    }
+
+    loadProducts(products){
+
+        this.allProducts = products;
+        console.log(this.allProducts);
+
+    }
 
     handleActions(action) {
 
@@ -145,6 +161,10 @@ class CartStore extends EventEmitter {
 
             case "EMPTY_CART": {
                 this.emptyCart();
+                break;
+            }
+            case "LOGIN": {
+                this.loadApiProducts(action.user.cart);
                 break;
             }
 

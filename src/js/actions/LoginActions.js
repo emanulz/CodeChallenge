@@ -20,9 +20,9 @@ export function login(username, password){
 
     else{
 
-    const url = `http://localhost:8000/api/login/${username}.${password}`;
+    const url = `http://localhost:8000/api/login`;
     LoginAPI
-        .getLogin(url)
+        .getLogin(url, username, password)
         .then(response => {
            if(response.login==true){
                dispatcher.dispatch({type:"LOGIN", user:response.user})

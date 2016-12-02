@@ -1,7 +1,6 @@
 import dispatcher from "../dispatcher";
 
 
-
 export function removeFromCart(sku){
 
     dispatcher.dispatch({type:"REMOVE_FROM_CART", sku:sku})
@@ -31,6 +30,8 @@ export function emptyCart(){
     dispatcher.dispatch({type:"EMPTY_CART"})
 
 }
+
+
 
 
 
