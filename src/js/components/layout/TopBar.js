@@ -1,6 +1,3 @@
-/*
- * Module dependencies
- */
 
 import React from 'react';
 import { Link } from 'react-router';
@@ -13,7 +10,7 @@ export default class NavigationBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { loggedIn: LoginStore.getLoggedIn(), username:LoginStore.getUsername()};
+        this.state = { loggedIn: LoginStore.getLoggedIn(), user:LoginStore.getUser()};
     }
 
 
@@ -70,7 +67,7 @@ export default class NavigationBar extends React.Component {
                         </Link>
 
                         <span className="title-sub-2" hidden={!this.state.loggedIn} >
-                            Hello {this.state.username}
+                            Hello {this.state.user.name}&nbsp;
                             <a href="" onClick={this.callLogout.bind(this)}>
                                 <span className="title-sub-">
                                     (Logout)

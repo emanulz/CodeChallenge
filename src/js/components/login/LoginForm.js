@@ -9,7 +9,7 @@ export default class LoginForm extends React.Component {
         super(props);
         this.redirectHome = this.redirectHome.bind(this);
         this.handleError = this.handleError.bind(this);
-        this.state = { username: '', password:'' };
+        this.state = { username: '', password:'', failed:false};
     }
 
     componentWillMount() {
@@ -29,7 +29,8 @@ export default class LoginForm extends React.Component {
     }
 
     handleError(){
-        alert('Error on Login, please try Again');
+
+        this.setState({failed: true});
     }
 
 
@@ -53,11 +54,15 @@ export default class LoginForm extends React.Component {
 
     render(){
 
+        let classToApply = (this.state.failed) ? 'login-failed-input': '';
+
         return  <div>
                     <form className="login-form">
-
-                        <input type="text" placeholder="username" value={this.state.username} onChange={this.changeUsername.bind(this)}/>
-                        <input type="password" placeholder="password" value={this.state.password} onChange={this.changePassword.bind(this)}/>
+                        <div className="login-failed" hidden={!this.state.failed}> User/Password error, please try again. </div>
+                        <input className={classToApply} type="text" placeholder="username" value={this.state.username}
+                               onChange={this.changeUsername.bind(this)}/>
+                        <input className={classToApply} type="password" placeholder="password" value={this.state.password}
+                               onChange={this.changePassword.bind(this)}/>
                         <button onClick={this.clickLogin.bind(this)} >login</button>
                     </form>
                 </div>

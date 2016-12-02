@@ -253,7 +253,13 @@
     background: #43A047;
 }
 
+.login-failed-input{
+    border: solid 1px red !important;
+}
 
+.login-failed{
+    color: red !important;
+}
 
 .product{
 

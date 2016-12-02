@@ -22,26 +22,24 @@ class LoginStore extends EventEmitter {
         return this.isLoggedIn;
     }
 
-    getUsername() {
+    getUser() {
 
         return this.user;
     }
 
 
-    login(username, password) {
+    login(user) {
 
-        if(username=='admin' && password=='admin'){
-            this.isLoggedIn = true;
-            this.user = username;
-            this.emit("loginValid");
-            localStorage.isLoggedIn=JSON.stringify(true);
-            localStorage.user=JSON.stringify(username);
+        this.isLoggedIn = true;
+        this.user = user;
+        this.emit("loginValid");
+        localStorage.isLoggedIn=JSON.stringify(true);
+        localStorage.user=JSON.stringify(user);
 
-        }
-        else{
-            this.emit("loginError");
-        }
+    }
 
+    loginfailed(){
+        this.emit("loginError");
     }
 
     logout() {
@@ -59,11 +57,15 @@ class LoginStore extends EventEmitter {
         switch(action.type) {
 
             case "LOGIN": {
-                this.login(action.username, action.password);
+                this.login(action.user);
                 break;
             }
             case "LOGOUT": {
                 this.logout();
+                break;
+            }
+            case "FAILED_LOGIN": {
+                this.loginfailed();
                 break;
             }
 

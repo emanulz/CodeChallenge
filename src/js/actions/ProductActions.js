@@ -7,12 +7,10 @@ export function loadProducts() {
 
 
     if (localStorage.products){
-        console.log('Hola desde es Storage');
         dispatcher.dispatch({type: "RECEIVE_PRODUCTS", products: JSON.parse(localStorage.products)});
     }
 
     else{
-        console.log('Cargando desde API');
         ProductsAPI
             .getProducts('products.json')
             .then(products => {
