@@ -1,3 +1,6 @@
+/*
+ * Module dependencies
+ */
 import dispatcher from "../dispatcher";
 
 

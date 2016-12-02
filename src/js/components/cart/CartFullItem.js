@@ -1,4 +1,6 @@
-
+/*
+ * Module dependencies
+ */
 import React from 'react';
 
 export default class CartFullItemItem extends React.Component {
@@ -8,7 +10,7 @@ export default class CartFullItemItem extends React.Component {
         ev.preventDefault();
         this.props.removeItem(this.props.product.sku);
     }
-
+    // Single Cart Full Page Item, its a row in table
     render() {
 
         let price = (this.props.qty*this.props.product.price).toFixed(2);

@@ -1,3 +1,6 @@
+/*
+ * Module dependencies
+ */
 import { EventEmitter } from "events";
 
 import dispatcher from "../dispatcher";
@@ -6,6 +9,7 @@ class LoginStore extends EventEmitter {
 
     constructor() {
         super();
+        // try to load data of user logged in from local storage.
         try{
             this.isLoggedIn = JSON.parse(localStorage.isLoggedIn);
             this.user = JSON.parse(localStorage.user);
@@ -17,6 +21,7 @@ class LoginStore extends EventEmitter {
 
     }
 
+    //get functions used by components
     getLoggedIn() {
 
         return this.isLoggedIn;
@@ -27,23 +32,19 @@ class LoginStore extends EventEmitter {
         return this.user;
     }
 
-
     login(user) {
 
         this.isLoggedIn = true;
         this.user = user;
         this.emit("loginValid");
+        // when login saves data to local storage
         localStorage.isLoggedIn=JSON.stringify(true);
         localStorage.user=JSON.stringify(user);
 
     }
 
-    loginfailed(){
-        this.emit("loginError");
-    }
-
     logout() {
-
+        // Clears data on logout
         this.isLoggedIn = false;
         this.user = '';
         localStorage.isLoggedIn=JSON.stringify(false);
@@ -51,7 +52,11 @@ class LoginStore extends EventEmitter {
         this.emit("logout");
     }
 
+    loginFailed(){
+        this.emit("loginError");
+    }
 
+    //Handel actions triggered by dispatcher
     handleActions(action) {
 
         switch(action.type) {
@@ -65,7 +70,7 @@ class LoginStore extends EventEmitter {
                 break;
             }
             case "FAILED_LOGIN": {
-                this.loginfailed();
+                this.loginFailed();
                 break;
             }
 

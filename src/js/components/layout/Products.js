@@ -1,3 +1,6 @@
+/*
+ * Module dependencies
+ */
 import React from "react";
 
 import Product from '../product/Product'
@@ -14,7 +17,7 @@ export default class Products extends React.Component {
         this.getProducts = this.getProducts.bind(this);
         this.redirectToLogin = this.redirectToLogin.bind(this);
         this.state = {
-            products: ProductStore.getAll(),
+            products: ProductStore.getProducts()
         };
     }
 
@@ -40,11 +43,12 @@ export default class Products extends React.Component {
     getProducts() {
 
         this.setState({
-            products: ProductStore.getAll(),
+            products: ProductStore.getProducts(),
         });
 
     }
 
+    // Hides cart on body click
     clickBody(){
         CartActions.hideCart();
     }
@@ -52,7 +56,7 @@ export default class Products extends React.Component {
     redirectToLogin(){
         window.location.assign("/#/login");
     }
-
+    // Renders All Products on state in a grid view
     render() {
         const { products } = this.state;
 

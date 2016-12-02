@@ -1,3 +1,6 @@
+/*
+ * Module dependencies
+ */
 import { EventEmitter } from "events";
 
 import dispatcher from "../dispatcher";
@@ -6,14 +9,17 @@ class ProductStore extends EventEmitter {
 
     constructor() {
         super();
+        //stores current products and all products
         this.products = [];
         this.allProducts = [];
     }
 
-    getAll() {
+    //Get products
+    getProducts() {
         return this.products;
     }
 
+    //Filter product by name
     filterProduct(text) {
 
         const products = this.allProducts;
@@ -38,6 +44,7 @@ class ProductStore extends EventEmitter {
         this.emit("change");
     }
 
+    //Handel actions triggered by dispatcher
     handleActions(action) {
 
         switch(action.type) {

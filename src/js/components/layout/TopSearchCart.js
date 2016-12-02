@@ -29,7 +29,7 @@ export default class TopSearchCart extends React.Component {
 
     }
 
-
+    // Gets cart Data for button
     getCartData(){
 
         this.setState({
@@ -39,10 +39,9 @@ export default class TopSearchCart extends React.Component {
 
     }
 
+    // Clears search field
     clearSearch(){
-
         this.setState({query :''});
-
     }
 
     toggleCart(ev){
@@ -55,7 +54,7 @@ export default class TopSearchCart extends React.Component {
         CartActions.searchProduct(ev.target.value);
     }
 
-
+    // Cart Button bar, with search input
     render(){
 
         return  <div className="search-cart-div">

@@ -1,7 +1,9 @@
+/*
+ * Module dependencies
+ */
 import React from 'react';
 import LoginStore from "../../stores/LoginStore";
 import * as LoginActions from '../../actions/LoginActions'
-
 
 export default class LoginForm extends React.Component {
 
@@ -23,35 +25,34 @@ export default class LoginForm extends React.Component {
         LoginStore.removeListener("loginError", this.handleError);
     }
 
-
+    // Go to Home after login
     redirectHome(){
         window.location.assign("/#");
     }
 
+    // On login Error
     handleError(){
-
         this.setState({failed: true});
     }
 
-
+    // Click on Login button
     clickLogin(ev){
         ev.preventDefault();
         LoginActions.login(this.state.username, this.state.password);
 
     }
 
+    // Handel username field
     changeUsername(ev){
-
-    this.setState({username: ev.target.value});
-
+        this.setState({username: ev.target.value});
     }
 
+    // Handel password field
     changePassword(ev){
-
         this.setState({password: ev.target.value});
-
     }
 
+    // Login Form
     render(){
 
         let classToApply = (this.state.failed) ? 'login-failed-input': '';

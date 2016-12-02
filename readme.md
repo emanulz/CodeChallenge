@@ -25,6 +25,7 @@
 * An express server was implemented in order to simulate a backend server in charge of the login action.
 
 * Open a new console window and navigate to project folder.
+
 * Navigate to /server folder.
 
 * Run 'npm install' on console.

@@ -1,4 +1,6 @@
-
+/*
+ * Module dependencies
+ */
 import React from 'react';
 import { Link } from 'react-router';
 import * as CartActions from "../../actions/CartActions";
@@ -13,13 +15,14 @@ export default class NavigationBar extends React.Component {
         this.state = { loggedIn: LoginStore.getLoggedIn(), user:LoginStore.getUser()};
     }
 
-
+    // On full Cart click
     clickFullCart(ev){
         ev.preventDefault();
         window.location.assign("/#/cart");
         CartActions.hideCart();
     }
 
+    // On logout Click
     callLogout(ev){
         ev.preventDefault();
         LoginActions.logout();
@@ -27,7 +30,7 @@ export default class NavigationBar extends React.Component {
     }
 
     render(){
-
+        // Top Navigation Bar
         return  <div className="head-div">
 
                     <span>

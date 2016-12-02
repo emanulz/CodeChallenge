@@ -1,16 +1,18 @@
+/*
+ * Module dependencies
+ */
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
 
-let bodyParser = require('body-parser');
-
-
+let bodyParser = require('body-parser'); // it parse data from post request
 app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
-
+// Users array is used to emulate the response of a backend server.
 
 let users = [
     {
@@ -33,12 +35,14 @@ let users = [
     }
 ];
 
+//login post request.
 
 app.post('/api/login', (req, res) => {
 
     let login = false;
     let user ='';
 
+    //check on users for a match.
     for(let i = 0; i < users.length; i++) {
         if (users[i].username == req.body.username && users[i].password == req.body.password) {
             login = true;
@@ -46,7 +50,7 @@ app.post('/api/login', (req, res) => {
             break;
         }
     }
-
+    //returns true if logged in successfully, and the user, otherwise return false, and empty.
     res.json({'login':login, 'user':user});
 
 });

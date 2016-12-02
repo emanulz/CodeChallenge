@@ -1,4 +1,6 @@
-
+/*
+ * Module dependencies
+ */
 import React from 'react';
 import CartFullItem from"./CartFullItem"
 import CartStore from "../../stores/CartStore";
@@ -30,6 +32,7 @@ export default class CartFull extends React.Component {
         this.getCartProducts();
     }
 
+    //Gets all cart Data
     getCartProducts() {
         this.setState({
             products: CartStore.getCartProducts(),
@@ -43,6 +46,7 @@ export default class CartFull extends React.Component {
         CartActions.removeFromCart(sku);
     }
 
+    //On login click
     redirectToLogin(){
         window.location.assign("/#/login");
     }
@@ -60,7 +64,7 @@ export default class CartFull extends React.Component {
 
         });
 
-
+        // Renders data in table format
         return <div className="cart-full-container">
 
             <h2 className="cart-full-head" >Shopping Cart</h2>

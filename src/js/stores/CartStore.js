@@ -1,3 +1,6 @@
+/*
+ * Module dependencies
+ */
 import { EventEmitter } from "events";
 
 import dispatcher from "../dispatcher";
@@ -5,14 +8,15 @@ import dispatcher from "../dispatcher";
 class CartStore extends EventEmitter {
 
     constructor() {
+        // Store vars
         super();
         this.products = [];
         this.itemsInCart = 0;
         this.cartTotal = 0;
         this.cartVisible = false;
-        this.allProducts = [];
     }
 
+    // Get functions used by components
     getCartProducts() {
         return this.products;
     }
@@ -29,12 +33,15 @@ class CartStore extends EventEmitter {
         return this.cartVisible;
     }
 
+    //Add product to Cart function
     addProduct(product, qty) {
+
 
         let isOnProducts = false;
 
         const products = this.products;
 
+        //check if product is already in cart
         for(let i = 0; i < products.length; i++) {
             if (products[i][0].sku == product.sku) {
                 isOnProducts = true;
@@ -42,10 +49,12 @@ class CartStore extends EventEmitter {
             }
         }
 
+        //if its already in cart just add quantity
         if (isOnProducts){
             this.products[i][1]=this.products[i][1]+qty;
         }
 
+        //Otherwise add it to cart
         else{
             this.products.push([product, qty]);
             this.itemsInCart = this.itemsInCart+1;
@@ -55,6 +64,7 @@ class CartStore extends EventEmitter {
         this.emit("change");
     }
 
+    //Remove from cart based on sku
     removeProduct(sku) {
 
         let isOnProducts = false;
@@ -83,6 +93,7 @@ class CartStore extends EventEmitter {
 
     }
 
+    //Cart functionality functions
     toggleCart(){
 
         this.cartVisible = !this.cartVisible;
@@ -95,6 +106,18 @@ class CartStore extends EventEmitter {
         this.emit("change");
     }
 
+    emptyCart(){
+
+        this.products = [];
+        this.itemsInCart = 0;
+        this.cartTotal = 0;
+        this.cartVisible = false;
+
+        this.emit("change");
+
+    }
+
+    //Calculates the total amount based on quantity and price.
     setCartTotal(){
 
         const products = this.products;
@@ -109,30 +132,7 @@ class CartStore extends EventEmitter {
         this.cartTotal = total;
     }
 
-    emptyCart(){
-
-        this.products = [];
-        this.itemsInCart = 0;
-        this.cartTotal = 0;
-        this.cartVisible = false;
-
-        this.emit("change");
-
-    }
-
-    loadApiProducts(cart){
-
-
-
-    }
-
-    loadProducts(products){
-
-        this.allProducts = products;
-        console.log(this.allProducts);
-
-    }
-
+   //Handel Actions triggered by dispatcher
     handleActions(action) {
 
         switch(action.type) {
@@ -163,10 +163,6 @@ class CartStore extends EventEmitter {
                 this.emptyCart();
                 break;
             }
-            case "LOGIN": {
-                this.loadApiProducts(action.user.cart);
-                break;
-            }
 
         }
     }
@@ -174,7 +170,6 @@ class CartStore extends EventEmitter {
 
 const cartStore = new CartStore;
 dispatcher.register(cartStore.handleActions.bind(cartStore));
-
 
 export default cartStore;
 

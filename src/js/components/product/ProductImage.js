@@ -13,7 +13,7 @@ export default class ProductImage extends React.Component {
 
     }
 
-
+    // Product Image component, link to open modal
     render() {
         if(this.props.product.imageUrl){
             let imageUrl = this.props.product.imageUrl;

@@ -1,4 +1,6 @@
-
+/*
+ * Module dependencies
+ */
 import React from 'react';
 
 export default class CartItem extends React.Component {
@@ -8,7 +10,7 @@ export default class CartItem extends React.Component {
         ev.preventDefault();
         this.props.removeItem(this.props.product.sku);
     }
-
+    // Single Cart Item rendered
     render() {
 
         let price = (this.props.qty*this.props.product.price).toFixed(2);

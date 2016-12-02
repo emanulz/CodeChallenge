@@ -1,4 +1,6 @@
-
+/*
+ * Module dependencies
+ */
 import React from 'react';
 
 import CartItem from"./CartItem"
@@ -25,6 +27,7 @@ export default class Cart extends React.Component {
 
     }
 
+    // Gets all cart Data
     getCartProducts() {
         this.setState({
             products: CartStore.getCartProducts(),
@@ -34,10 +37,12 @@ export default class Cart extends React.Component {
         });
     }
 
+    //Remove item from cart
     removeFromCart(sku){
         CartActions.removeFromCart(sku);
     }
 
+    // Go to Full Cart Page
     clickFullCart(){
 
         window.location.assign("/#/cart");
@@ -60,6 +65,7 @@ export default class Cart extends React.Component {
 
         const visible = this.state.cartVisible ? 'cart-container visible' : 'cart-container';
 
+        // renders cart, only visible when button pressed
         return <div className={visible} >
 
                     <div className="cart-head" >Shopping Cart</div>

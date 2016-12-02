@@ -12,7 +12,7 @@ export default class ProductName extends React.Component {
         ev.preventDefault();
         this.props.callBack();
     }
-
+    // Product Name with link to open modal
     render() {
         if(this.props.product.name){
             return  <section>

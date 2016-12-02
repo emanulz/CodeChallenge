@@ -54,10 +54,10 @@ export default class Product extends React.Component {
     }
 
     render() {
-
+        // If has image Url uses that, or uses generic image.
         const imageUrl = this.props.product.imageUrl ? this.props.product.imageUrl : "/img/noImageAvailable.png";
 
-
+        // Single product item with modal hidden for every product.
         return <div className="product-container ">
             <Col md={6} lg={4} >
 
@@ -78,7 +78,6 @@ export default class Product extends React.Component {
                 <section>
                     {`$ ${this.props.product.price}`}
                 </section>
-
 
                 <Modal show={this.state.showModal} onHide={this.close}>
 
